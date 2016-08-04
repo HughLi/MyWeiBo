@@ -16,6 +16,8 @@
 		20A5537A1D44D2F3002CDA50 /* DiscoverTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A553791D44D2F3002CDA50 /* DiscoverTableViewController.swift */; };
 		20A5537C1D44D306002CDA50 /* MessegeTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5537B1D44D306002CDA50 /* MessegeTableViewController.swift */; };
 		20A5537E1D44D314002CDA50 /* ProfileTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 20A5537D1D44D314002CDA50 /* ProfileTableViewController.swift */; };
+		9CF07A9C1D51934E004D9615 /* MainSource.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CF07A9B1D51934E004D9615 /* MainSource.json */; };
+		9CF07A9E1D51DEF5004D9615 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF07A9D1D51DEF5004D9615 /* NullViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,6 +53,8 @@
 		20A553791D44D2F3002CDA50 /* DiscoverTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DiscoverTableViewController.swift; sourceTree = "<group>"; };
 		20A5537B1D44D306002CDA50 /* MessegeTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MessegeTableViewController.swift; sourceTree = "<group>"; };
 		20A5537D1D44D314002CDA50 /* ProfileTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileTableViewController.swift; sourceTree = "<group>"; };
+		9CF07A9B1D51934E004D9615 /* MainSource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainSource.json; sourceTree = "<group>"; };
+		9CF07A9D1D51DEF5004D9615 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -167,6 +171,7 @@
 		20A553711D44D156002CDA50 /* Main */ = {
 			isa = PBXGroup;
 			children = (
+				9CF07A9A1D519310004D9615 /* source */,
 				20A553751D44D240002CDA50 /* MainViewController.swift */,
 			);
 			path = Main;
@@ -193,6 +198,15 @@
 			children = (
 			);
 			path = Tools;
+			sourceTree = "<group>";
+		};
+		9CF07A9A1D519310004D9615 /* source */ = {
+			isa = PBXGroup;
+			children = (
+				9CF07A9B1D51934E004D9615 /* MainSource.json */,
+				9CF07A9D1D51DEF5004D9615 /* NullViewController.swift */,
+			);
+			path = source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -308,6 +322,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9CF07A9C1D51934E004D9615 /* MainSource.json in Resources */,
 				20A553471D44CE6F002CDA50 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -339,6 +354,7 @@
 				20A5537C1D44D306002CDA50 /* MessegeTableViewController.swift in Sources */,
 				20A5537A1D44D2F3002CDA50 /* DiscoverTableViewController.swift in Sources */,
 				20A553401D44CE6F002CDA50 /* AppDelegate.swift in Sources */,
+				9CF07A9E1D51DEF5004D9615 /* NullViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -556,6 +572,7 @@
 				20A553661D44CE70002CDA50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20A553671D44CE70002CDA50 /* Build configuration list for PBXNativeTarget "weiboTests" */ = {
 			isa = XCConfigurationList;
@@ -564,6 +581,7 @@
 				20A553691D44CE70002CDA50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		20A5536A1D44CE70002CDA50 /* Build configuration list for PBXNativeTarget "weiboUITests" */ = {
 			isa = XCConfigurationList;
@@ -572,6 +590,7 @@
 				20A5536C1D44CE70002CDA50 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
