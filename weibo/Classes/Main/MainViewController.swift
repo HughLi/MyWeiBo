@@ -77,7 +77,6 @@ class MainViewController: UITabBarController {
         addChildViewController(nav)
     }
     func composeBtnClick() {
-        print(__FOUNDATION_NSPOINTERFUNCTIONS__)
         print("hahh" )
         
     }
