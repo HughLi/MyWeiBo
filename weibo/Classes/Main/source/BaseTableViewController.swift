@@ -8,9 +8,9 @@
 
 import UIKit
 
-class BaseTableViewController: UITableViewController {
+class BaseTableViewController: UITableViewController ,VisitorViewDelegate{
     //定义一个变量标记登录状态
-    var userLogin = false
+    var userLogin = true
     //定义属性保存登录界面是否登录的状态
     var visitorView:VisitorView?
     /// 
@@ -19,12 +19,29 @@ class BaseTableViewController: UITableViewController {
     }
     
     private func setupVisitorView() {
+        //1.初始化未登录界面
         let customView = VisitorView()
         customView.backgroundColor = UIColor.white
+        customView.delegate = self
         view = customView
         visitorView = customView
+        
+        //2.设置导航条按钮
+        navigationItem.leftBarButtonItem = UIBarButtonItem.init(title: "注册", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseTableViewController.registerBtnWillClick))
+        
+        navigationItem.rightBarButtonItem = UIBarButtonItem.init(title: "登录", style: UIBarButtonItemStyle.plain, target: self, action: #selector(BaseTableViewController.loginBtnWillClick))
+        
+        
+        
     }
     
+    // MARK: - VisitorViewDelegate
+    func loginBtnWillClick() {
+        print(#function)
+    }
+    func registerBtnWillClick() {
+        print(#function)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
         

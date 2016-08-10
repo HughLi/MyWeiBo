@@ -19,6 +19,8 @@
 		9CB919501D5AC20500CF2D3F /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9194F1D5AC20500CF2D3F /* BaseTableViewController.swift */; };
 		9CB919521D5AC60500CF2D3F /* VisitorView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB919511D5AC60500CF2D3F /* VisitorView.swift */; };
 		9CB919591D5ACB9D00CF2D3F /* UIView+AutoLayout.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB919581D5ACB9D00CF2D3F /* UIView+AutoLayout.swift */; };
+		9CB9195B1D5B20A200CF2D3F /* UIbarButtonItem+category.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9195A1D5B20A200CF2D3F /* UIbarButtonItem+category.swift */; };
+		9CB9195F1D5B252B00CF2D3F /* TitleButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CB9195E1D5B252B00CF2D3F /* TitleButton.swift */; };
 		9CF07A9C1D51934E004D9615 /* MainSource.json in Resources */ = {isa = PBXBuildFile; fileRef = 9CF07A9B1D51934E004D9615 /* MainSource.json */; };
 		9CF07A9E1D51DEF5004D9615 /* NullViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9CF07A9D1D51DEF5004D9615 /* NullViewController.swift */; };
 /* End PBXBuildFile section */
@@ -59,6 +61,8 @@
 		9CB9194F1D5AC20500CF2D3F /* BaseTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BaseTableViewController.swift; path = source/BaseTableViewController.swift; sourceTree = "<group>"; };
 		9CB919511D5AC60500CF2D3F /* VisitorView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VisitorView.swift; sourceTree = "<group>"; };
 		9CB919581D5ACB9D00CF2D3F /* UIView+AutoLayout.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+AutoLayout.swift"; sourceTree = "<group>"; };
+		9CB9195A1D5B20A200CF2D3F /* UIbarButtonItem+category.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIbarButtonItem+category.swift"; path = "weibo/Classes/Main/UIbarButtonItem+category.swift"; sourceTree = SOURCE_ROOT; };
+		9CB9195E1D5B252B00CF2D3F /* TitleButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TitleButton.swift; path = weibo/Assets.xcassets/NavigationBar/navigationbar_arrow_down.imageset/TitleButton.swift; sourceTree = SOURCE_ROOT; };
 		9CF07A9B1D51934E004D9615 /* MainSource.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MainSource.json; sourceTree = "<group>"; };
 		9CF07A9D1D51DEF5004D9615 /* NullViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NullViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +158,8 @@
 		20A5536E1D44D156002CDA50 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				9CB9195A1D5B20A200CF2D3F /* UIbarButtonItem+category.swift */,
+				9CB9195E1D5B252B00CF2D3F /* TitleButton.swift */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -365,8 +371,10 @@
 				20A5537C1D44D306002CDA50 /* MessegeTableViewController.swift in Sources */,
 				9CB919591D5ACB9D00CF2D3F /* UIView+AutoLayout.swift in Sources */,
 				20A5537A1D44D2F3002CDA50 /* DiscoverTableViewController.swift in Sources */,
+				9CB9195B1D5B20A200CF2D3F /* UIbarButtonItem+category.swift in Sources */,
 				9CB919521D5AC60500CF2D3F /* VisitorView.swift in Sources */,
 				20A553401D44CE6F002CDA50 /* AppDelegate.swift in Sources */,
+				9CB9195F1D5B252B00CF2D3F /* TitleButton.swift in Sources */,
 				9CF07A9E1D51DEF5004D9615 /* NullViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

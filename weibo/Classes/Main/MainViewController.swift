@@ -12,7 +12,8 @@ class MainViewController: UITabBarController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        tabBar.tintColor = UIColor.init(red: 255/255.0, green: 118/255.0, blue: 1/255.0, alpha: 1)
+//        tabBar.tintColor = UIColor.init(red: 255/255.0, green: 118/255.0, blue: 1/255.0, alpha: 1)
+        //设置外观
         
         //添加子控制器
         addChildViewControllers()

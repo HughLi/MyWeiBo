@@ -7,14 +7,23 @@
 //
 
 import UIKit
+//swift 中定义协议 必须遵守NSObjectProtocol
+protocol VisitorViewDelegate:NSObjectProtocol{
+    //登录回调
+    func loginBtnWillClick()
+    //注册回调
+    func registerBtnWillClick()
+}
 
 class VisitorView: UIView {
-    
+    //定义一个属性 保存代理对象
+    //加上weak避免循环引用
+    weak var delegate:VisitorViewDelegate?
     /// 设置未登录界面
     ///
-    /// - parameter isHome:    <#isHome description#>
-    /// - parameter imageName: <#imageName description#>
-    /// - parameter message:   <#message description#>
+    /// - parameter isHome: 判断当前页面是不是首页
+    /// - parameter imageName: 传入当前页面的图片
+    /// - parameter message: 传入当前页面的说明文字
     func setupVisotorInfo(isHome:Bool,imageName:String,message:String) -> () {
         //如果不是首页 将背景隐藏
         iconView.isHidden = !isHome
@@ -62,7 +71,7 @@ class VisitorView: UIView {
         ani.toValue = 2*M_PI
         ani.duration = 20
         ani.repeatCount = MAXFLOAT
-        
+        ani.isRemovedOnCompletion = false//动画完成后不消失
         //3.将动画添加到图层
         iconView.layer.add(ani, forKey: nil)
     }
@@ -98,17 +107,30 @@ class VisitorView: UIView {
         btn.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
         btn.setTitle("登录", for: UIControlState.normal)
         btn.setBackgroundImage(UIImage.init(named: "common_button_white_disable"), for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(VisitorView.loginBtnClick), for: UIControlEvents.touchUpInside)
         return btn
     }()
     
+    ///点击登录按钮
+    func loginBtnClick ()
+    {
+        print(#function)
+        delegate?.loginBtnWillClick()
+    }
     /// 注册按钮
     private lazy var registerButton: UIButton = {
         let btn = UIButton ()
         btn.setTitle("注册", for: UIControlState.normal)
         btn.setTitleColor(UIColor.orange, for: UIControlState.normal)
         btn.setBackgroundImage(UIImage.init(named: "common_button_white_disable"), for: UIControlState.normal)
+        btn.addTarget(self, action: #selector(VisitorView.registerBtnClick), for: UIControlEvents.touchUpInside)
         return btn
     }()
+    func registerBtnClick ()
+    {
+        print(#function)
+        delegate?.registerBtnWillClick()
+    }
     
     private lazy var maskBGView : UIImageView = {
         let iv = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_mask_smallicon"))
