@@ -24,7 +24,7 @@ class VisitorView: UIView {
     /// - parameter isHome: 判断当前页面是不是首页
     /// - parameter imageName: 传入当前页面的图片
     /// - parameter message: 传入当前页面的说明文字
-    func setupVisotorInfo(isHome:Bool,imageName:String,message:String) -> () {
+    func setupVisotorInfo(_ isHome:Bool,imageName:String,message:String) -> () {
         //如果不是首页 将背景隐藏
         iconView.isHidden = !isHome
         //修改中间的图标
@@ -48,23 +48,23 @@ class VisitorView: UIView {
         addSubview(registerButton)
         //2.布局子控件
         //2.1设置背景
-        iconView.xmg_AlignInner(type: XMG_AlignType.Center, referView: self, size: nil)
+        iconView.xmg_AlignInner(XMG_AlignType.center, referView: self, size: nil)
         //2.2 设置小房子
-        homeIcon.xmg_AlignInner(type: XMG_AlignType.Center, referView: self, size: nil)
+        homeIcon.xmg_AlignInner(XMG_AlignType.center, referView: self, size: nil)
         //2.3设置文本
-        messageLabel.xmg_AlignVertical(type: XMG_AlignType.BottomCenter, referView: iconView, size: nil)
+        messageLabel.xmg_AlignVertical(XMG_AlignType.bottomCenter, referView: iconView, size: nil)
         //什么控件的什么属性 等于 另外一个控件的什么属性 * 多少 + 多少
         addConstraint(NSLayoutConstraint.init(item: messageLabel, attribute: NSLayoutAttribute.width, relatedBy: NSLayoutRelation.equal, toItem: nil, attribute: NSLayoutAttribute.notAnAttribute, multiplier: 1.0, constant: 224))
         //2.4 设置按钮
-        registerButton.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: messageLabel, size: CGSize.init(width: 100, height: 30),offset:CGPoint.init(x: 0, y: 20))
-        loginButton.xmg_AlignVertical(type: XMG_AlignType.BottomRight, referView: messageLabel, size: CGSize.init(width: 100, height: 30),offset:CGPoint.init(x: 0, y: 20))
+        registerButton.xmg_AlignVertical(XMG_AlignType.bottomLeft, referView: messageLabel, size: CGSize.init(width: 100, height: 30),offset:CGPoint.init(x: 0, y: 20))
+        loginButton.xmg_AlignVertical(XMG_AlignType.bottomRight, referView: messageLabel, size: CGSize.init(width: 100, height: 30),offset:CGPoint.init(x: 0, y: 20))
         //2.5 设置蒙版
         //        maskBGView.xmg_AlignInner(type: XMG_AlignType.Center, referView: self, size: nil)
-        maskBGView.xmg_Fill(referView: self)
+        maskBGView.xmg_Fill(self)
     }
     
     //MARK: - 内部控制方法 首页动画
-    private func startAnmation(){
+    fileprivate func startAnmation(){
         //1.创建动画
         let ani = CABasicAnimation.init(keyPath: "transform.rotation")
         //2.设置动画属性
@@ -83,17 +83,17 @@ class VisitorView: UIView {
     
     //Mark: - 懒加载控件
     ///背景图标
-    private lazy var iconView: UIImageView = {
+    fileprivate lazy var iconView: UIImageView = {
         let iv = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_smallicon"))
         return iv
     }()
     ///小房子图标
-    private lazy var homeIcon: UIImageView = {
+    fileprivate lazy var homeIcon: UIImageView = {
         let iv = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_image_house"))
         return iv
     }()
     /// 描述文字
-    private lazy var messageLabel: UILabel = {
+    fileprivate lazy var messageLabel: UILabel = {
         let label = UILabel()
         label.numberOfLines = 0
         label.textColor = UIColor.darkGray
@@ -102,7 +102,7 @@ class VisitorView: UIView {
     }()
     
     /// 登录按钮
-    private lazy var loginButton: UIButton = {
+    fileprivate lazy var loginButton: UIButton = {
         let btn = UIButton ()
         btn.setTitleColor(UIColor.darkGray, for: UIControlState.normal)
         btn.setTitle("登录", for: UIControlState.normal)
@@ -118,7 +118,7 @@ class VisitorView: UIView {
         delegate?.loginBtnWillClick()
     }
     /// 注册按钮
-    private lazy var registerButton: UIButton = {
+    fileprivate lazy var registerButton: UIButton = {
         let btn = UIButton ()
         btn.setTitle("注册", for: UIControlState.normal)
         btn.setTitleColor(UIColor.orange, for: UIControlState.normal)
@@ -132,7 +132,7 @@ class VisitorView: UIView {
         delegate?.registerBtnWillClick()
     }
     
-    private lazy var maskBGView : UIImageView = {
+    fileprivate lazy var maskBGView : UIImageView = {
         let iv = UIImageView.init(image: UIImage.init(named: "visitordiscover_feed_mask_smallicon"))
         return iv
     }()

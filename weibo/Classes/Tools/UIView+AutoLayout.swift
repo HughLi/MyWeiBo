@@ -13,78 +13,78 @@ import UIKit
   - Center: 中中
 */
 public enum XMG_AlignType {
-    case TopLeft
-    case TopRight
-    case TopCenter
-    case BottomLeft
-    case BottomRight
-    case BottomCenter
-    case CenterLeft
-    case CenterRight
-    case Center
+    case topLeft
+    case topRight
+    case topCenter
+    case bottomLeft
+    case bottomRight
+    case bottomCenter
+    case centerLeft
+    case centerRight
+    case center
     
-    private func layoutAttributes(isInner: Bool, isVertical: Bool) -> XMG_LayoutAttributes {
+    fileprivate func layoutAttributes(_ isInner: Bool, isVertical: Bool) -> XMG_LayoutAttributes {
         let attributes = XMG_LayoutAttributes()
         
         switch self {
-            case .TopLeft:
-                attributes.horizontals(from: .left, to: .left).verticals(from: .top, to: .top)
+            case .topLeft:
+                attributes.horizontals(.left, to: .left).verticals(.top, to: .top)
                 
                 if isInner {
                     return attributes
                 } else if isVertical {
-                    return attributes.verticals(from: .bottom, to: .top)
+                    return attributes.verticals(.bottom, to: .top)
                 } else {
-                    return attributes.horizontals(from: .right, to: .left)
+                    return attributes.horizontals(.right, to: .left)
                 }
-            case .TopRight:
-                attributes.horizontals(from: .right, to: .right).verticals(from: .top, to: .top)
+            case .topRight:
+                attributes.horizontals(.right, to: .right).verticals(.top, to: .top)
                 
                 if isInner {
                     return attributes
                 } else if isVertical {
-                    return attributes.verticals(from: .bottom, to: .top)
+                    return attributes.verticals(.bottom, to: .top)
                 } else {
-                    return attributes.horizontals(from: .left, to: .right)
+                    return attributes.horizontals(.left, to: .right)
                 }
-            case .BottomLeft:
-                attributes.horizontals(from: .left, to: .left).verticals(from: .bottom, to: .bottom)
+            case .bottomLeft:
+                attributes.horizontals(.left, to: .left).verticals(.bottom, to: .bottom)
                 
                 if isInner {
                     return attributes
                 } else if isVertical {
-                    return attributes.verticals(from: .top, to: .bottom)
+                    return attributes.verticals(.top, to: .bottom)
                 } else {
-                    return attributes.horizontals(from: .right, to: .left)
+                    return attributes.horizontals(.right, to: .left)
                 }
-            case .BottomRight:
-                attributes.horizontals(from: .right, to: .right).verticals(from:.bottom, to: .bottom)
+            case .bottomRight:
+                attributes.horizontals(.right, to: .right).verticals(.bottom, to: .bottom)
                 
                 if isInner {
                     return attributes
                 } else if isVertical {
-                    return attributes.verticals(from: .top, to: .bottom)
+                    return attributes.verticals(.top, to: .bottom)
                 } else {
-                    return attributes.horizontals(from: .left, to: .right)
+                    return attributes.horizontals(.left, to: .right)
                 }
             // 仅内部 & 垂直参照需要
-            case .TopCenter:
-                attributes.horizontals(from: .centerX, to: .centerX).verticals(from:.top, to: .top)
-                return isInner ? attributes : attributes.verticals(from: .bottom, to: .top)
+            case .topCenter:
+                attributes.horizontals(.centerX, to: .centerX).verticals(.top, to: .top)
+                return isInner ? attributes : attributes.verticals(.bottom, to: .top)
             // 仅内部 & 垂直参照需要
-            case .BottomCenter:
-                attributes.horizontals(from: .centerX, to: .centerX).verticals(from: .bottom, to: .bottom)
-                return isInner ? attributes : attributes.verticals(from: .top, to: .bottom)
+            case .bottomCenter:
+                attributes.horizontals(.centerX, to: .centerX).verticals(.bottom, to: .bottom)
+                return isInner ? attributes : attributes.verticals(.top, to: .bottom)
             // 仅内部 & 水平参照需要
-            case .CenterLeft:
-                attributes.horizontals(from: .left, to: .left).verticals(from: .centerY, to: .centerY)
-                return isInner ? attributes : attributes.horizontals(from: .right, to: .left)
+            case .centerLeft:
+                attributes.horizontals(.left, to: .left).verticals(.centerY, to: .centerY)
+                return isInner ? attributes : attributes.horizontals(.right, to: .left)
             // 仅内部 & 水平参照需要
-            case .CenterRight:
-                attributes.horizontals(from: .right, to: .right).verticals(from: .centerY, to: .centerY)
-                return isInner ? attributes : attributes.horizontals(from: .left, to: .right)
+            case .centerRight:
+                attributes.horizontals(.right, to: .right).verticals(.centerY, to: .centerY)
+                return isInner ? attributes : attributes.horizontals(.left, to: .right)
             // 仅内部参照需要
-            case .Center:
+            case .center:
                 return XMG_LayoutAttributes(horizontal: .centerX, referHorizontal: .centerX, vertical: .centerY, referVertical: .centerY)
         }
     }
@@ -101,7 +101,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_Fill(referView: UIView, insets: UIEdgeInsets = UIEdgeInsets.zero) -> [NSLayoutConstraint] {
+    public func xmg_Fill(_ referView: UIView, insets: UIEdgeInsets = UIEdgeInsets.zero) -> [NSLayoutConstraint] {
         translatesAutoresizingMaskIntoConstraints = false
         
         var cons = [NSLayoutConstraint]()
@@ -124,9 +124,9 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_AlignInner(type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint]  {
+    public func xmg_AlignInner(_ type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint]  {
         
-        return xmg_AlignLayout(referView: referView, attributes: type.layoutAttributes(isInner: true, isVertical: true), size: size, offset: offset)
+        return xmg_AlignLayout(referView, attributes: type.layoutAttributes(true, isVertical: true), size: size, offset: offset)
     }
 
     /**
@@ -139,9 +139,9 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_AlignVertical(type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
+    public func xmg_AlignVertical(_ type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
         
-        return xmg_AlignLayout(referView: referView, attributes: type.layoutAttributes(isInner: false, isVertical: true), size: size, offset: offset)
+        return xmg_AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: true), size: size, offset: offset)
     }
     
     /**
@@ -154,9 +154,9 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_AlignHorizontal(type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
+    public func xmg_AlignHorizontal(_ type: XMG_AlignType, referView: UIView, size: CGSize?, offset: CGPoint = CGPoint.zero) -> [NSLayoutConstraint] {
         
-        return xmg_AlignLayout(referView: referView, attributes: type.layoutAttributes(isInner: false, isVertical: false), size: size, offset: offset)
+        return xmg_AlignLayout(referView, attributes: type.layoutAttributes(false, isVertical: false), size: size, offset: offset)
     }
 
     /**
@@ -167,22 +167,22 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_HorizontalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
+    public func xmg_HorizontalTile(_ views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
         
         assert(!views.isEmpty, "views should not be empty")
         
         var cons = [NSLayoutConstraint]()
         
         let firstView = views[0]
-        firstView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        firstView.xmg_AlignInner(XMG_AlignType.topLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.bottom, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.bottom, multiplier: 1.0, constant: -insets.bottom))
         
         // 添加后续视图的约束
         var preView = firstView
         for i in 1..<views.count {
             let subView = views[i]
-            cons += subView.xmg_sizeConstraints(size: firstView.frame.size)
-            subView.xmg_AlignHorizontal(type: XMG_AlignType.TopRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
+            cons += subView.xmg_sizeConstraints(firstView.frame.size)
+            subView.xmg_AlignHorizontal(XMG_AlignType.topRight, referView: preView, size: nil, offset: CGPoint(x: insets.right, y: 0))
             preView = subView
         }
         
@@ -201,22 +201,22 @@ extension UIView {
     
     :returns: 约束数组
     */
-    public func xmg_VerticalTile(views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
+    public func xmg_VerticalTile(_ views: [UIView], insets: UIEdgeInsets) -> [NSLayoutConstraint] {
         
         assert(!views.isEmpty, "views should not be empty")
         
         var cons = [NSLayoutConstraint]()
         
         let firstView = views[0]
-        firstView.xmg_AlignInner(type: XMG_AlignType.TopLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
+        firstView.xmg_AlignInner(XMG_AlignType.topLeft, referView: self, size: nil, offset: CGPoint(x: insets.left, y: insets.top))
         cons.append(NSLayoutConstraint(item: firstView, attribute: NSLayoutAttribute.right, relatedBy: NSLayoutRelation.equal, toItem: self, attribute: NSLayoutAttribute.right, multiplier: 1.0, constant: -insets.right))
         
         // 添加后续视图的约束
         var preView = firstView
         for i in 1..<views.count {
             let subView = views[i]
-            cons += subView.xmg_sizeConstraints(size: firstView.frame.size)
-            subView.xmg_AlignVertical(type: XMG_AlignType.BottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
+            cons += subView.xmg_sizeConstraints( firstView.frame.size)
+            subView.xmg_AlignVertical(XMG_AlignType.bottomLeft, referView: preView, size: nil, offset: CGPoint(x: 0, y: insets.bottom))
             preView = subView
         }
         
@@ -236,7 +236,7 @@ extension UIView {
     
     :returns: 对应的约束
     */
-    public func xmg_Constraint(constraintsList: [NSLayoutConstraint], attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
+    public func xmg_Constraint(_ constraintsList: [NSLayoutConstraint], attribute: NSLayoutAttribute) -> NSLayoutConstraint? {
         for constraint in constraintsList {
             if constraint.firstItem as! NSObject == self && constraint.firstAttribute == attribute {
                 return constraint
@@ -257,16 +257,16 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_AlignLayout(referView: UIView, attributes: XMG_LayoutAttributes, size: CGSize?, offset: CGPoint) -> [NSLayoutConstraint] {
+    fileprivate func xmg_AlignLayout(_ referView: UIView, attributes: XMG_LayoutAttributes, size: CGSize?, offset: CGPoint) -> [NSLayoutConstraint] {
         
         translatesAutoresizingMaskIntoConstraints = false
         
         var cons = [NSLayoutConstraint]()
         
-        cons += xmg_positionConstraints(referView: referView, attributes: attributes, offset: offset)
+        cons += xmg_positionConstraints(referView, attributes: attributes, offset: offset)
         
         if size != nil {
-            cons += xmg_sizeConstraints(size:size!)
+            cons += xmg_sizeConstraints(size!)
         }
         
         superview?.addConstraints(cons)
@@ -282,7 +282,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_sizeConstraints(size: CGSize) -> [NSLayoutConstraint] {
+    fileprivate func xmg_sizeConstraints(_ size: CGSize) -> [NSLayoutConstraint] {
         
         var cons = [NSLayoutConstraint]()
         
@@ -300,7 +300,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_sizeConstraints(referView: UIView) -> [NSLayoutConstraint] {
+    fileprivate func xmg_sizeConstraints(_ referView: UIView) -> [NSLayoutConstraint] {
         
         var cons = [NSLayoutConstraint]()
         
@@ -319,7 +319,7 @@ extension UIView {
     
     :returns: 约束数组
     */
-    private func xmg_positionConstraints(referView: UIView, attributes: XMG_LayoutAttributes, offset: CGPoint) -> [NSLayoutConstraint] {
+    fileprivate func xmg_positionConstraints(_ referView: UIView, attributes: XMG_LayoutAttributes, offset: CGPoint) -> [NSLayoutConstraint] {
         
         var cons = [NSLayoutConstraint]()
         
@@ -352,14 +352,14 @@ private final class XMG_LayoutAttributes {
         self.referVertical = referVertical
     }
     
-    private func horizontals(from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
+    fileprivate func horizontals(_ from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
         horizontal = from
         referHorizontal = to
         
         return self
     }
     
-    private func verticals(from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
+    fileprivate func verticals(_ from: NSLayoutAttribute, to: NSLayoutAttribute) -> Self {
         vertical = from
         referVertical = to
         

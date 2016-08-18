@@ -24,7 +24,7 @@ class MainViewController: UITabBarController {
         super.viewWillAppear(animated)
         setupComposeBtn()
     }
-    private func setupComposeBtn()//添加Btn
+    fileprivate func setupComposeBtn()//添加Btn
     {
         tabBar.addSubview(composeBtn)
         let width = UIScreen.main.bounds.size.width/CGFloat(viewControllers!.count)
@@ -35,37 +35,38 @@ class MainViewController: UITabBarController {
     
     //设置子控制器
     
-    private func addChildViewControllers (){
+    fileprivate func addChildViewControllers (){
         let path = Bundle.main.path(forResource: "MainSource.json", ofType: nil)
         if let jsonPath = path {
             let jsonData = NSData.init(contentsOfFile: jsonPath)
             do {
                 //发生异常后会跳转到catch中处理
                 let dicArr = try JSONSerialization.jsonObject(with: jsonData! as Data, options: JSONSerialization.ReadingOptions.mutableContainers)
+                
                 print(dicArr)
                 //遍历字典
                 for dict in dicArr as! [[String:String]]
                 {
-                    addChildViewController(childController: dict["vcName"]!, title: dict["title"]!, imageName: dict["imageName"]!)
+                    addChildViewController(dict["vcName"]!, title: dict["title"]!, imageName: dict["imageName"]!)
                 }
             }catch
             {
                 print (error)
-                addChildViewController(childController:"HomeTableViewController", title: "首页", imageName: "tabbar_home")
-                addChildViewController(childController: "DiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
+                addChildViewController("HomeTableViewController", title: "首页", imageName: "tabbar_home")
+                addChildViewController("DiscoverTableViewController", title: "广场", imageName: "tabbar_discover")
                 //占位控制器
-                addChildViewController(childController:"NullViewController",
+                addChildViewController("NullViewController",
                                        title: "", imageName: "")
-                addChildViewController(childController:"MessegeTableViewController",
+                addChildViewController("MessegeTableViewController",
                                        title: "消息", imageName: "tabbar_message_center")
-                addChildViewController(childController: "ProfileTableViewController", title: "我的", imageName: "tabbar_profile")
+                addChildViewController("ProfileTableViewController", title: "我的", imageName: "tabbar_profile")
             }
         }
         
     }
     
     
-    private func addChildViewController(childController: String, title:String ,imageName:String)
+    fileprivate func addChildViewController(_ childController: String, title:String ,imageName:String)
     {
         print (childController)
         let vc = (NSClassFromString(Bundle.main.infoDictionary?["CFBundleExecutable"]as! String + "." + childController) as!UIViewController.Type).init()
@@ -82,7 +83,7 @@ class MainViewController: UITabBarController {
         
     }
     
-    private lazy var composeBtn:UIButton = {
+    fileprivate lazy var composeBtn:UIButton = {
         let btn = UIButton()
         btn.setImage(UIImage.init(named: "tabbar_compose_icon_add"), for: UIControlState.normal)
         btn.setImage(UIImage.init(named: "tabbar_compose_icon_add_highlighted"), for: UIControlState.highlighted)

@@ -18,7 +18,7 @@ class BaseTableViewController: UITableViewController ,VisitorViewDelegate{
       userLogin ? super.loadView() :setupVisitorView()
     }
     
-    private func setupVisitorView() {
+    fileprivate func setupVisitorView() {
         //1.初始化未登录界面
         let customView = VisitorView()
         customView.backgroundColor = UIColor.white

@@ -33,7 +33,7 @@ class PopoverPresentationController: UIPresentationController {
 //    containerView?.addSubview(coverView)
     containerView?.insertSubview(coverView, at: 0)
     }
-    private lazy var coverView : UIView = {
+    fileprivate lazy var coverView : UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(white: 0.0, alpha: 0.2)
         view.frame = UIScreen.main.bounds

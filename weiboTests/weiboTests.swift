@@ -7,8 +7,6 @@
 //
 
 import XCTest
-@testable import weibo
-
 class weiboTests: XCTestCase {
     
     override func setUp() {

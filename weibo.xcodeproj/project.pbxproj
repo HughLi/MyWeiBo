@@ -318,21 +318,24 @@
 				TargetAttributes = {
 					20A5533B1D44CE6F002CDA50 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3PTJ269GQ5;
+						DevelopmentTeam = G4K7C6U27J;
 						DevelopmentTeamName = "越 李 (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 					};
 					20A5534F1D44CE70002CDA50 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3PTJ269GQ5;
+						DevelopmentTeam = G4K7C6U27J;
 						DevelopmentTeamName = "越 李 (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 20A5533B1D44CE6F002CDA50;
 					};
 					20A5535A1D44CE70002CDA50 = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = 3PTJ269GQ5;
+						DevelopmentTeam = G4K7C6U27J;
 						DevelopmentTeamName = "越 李 (Personal Team)";
+						LastSwiftMigration = 0800;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 20A5533B1D44CE6F002CDA50;
 					};
@@ -532,6 +535,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G4K7C6U27J;
 				INFOPLIST_FILE = weibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liyueSwiftTest.weibo;
@@ -544,6 +548,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G4K7C6U27J;
 				INFOPLIST_FILE = weibo/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liyueSwiftTest.weibo;
@@ -556,6 +561,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G4K7C6U27J;
 				INFOPLIST_FILE = weiboTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liyueSwiftTest.weiboTests;
@@ -569,6 +575,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				DEVELOPMENT_TEAM = G4K7C6U27J;
 				INFOPLIST_FILE = weiboTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liyueSwiftTest.weiboTests;
@@ -581,6 +588,7 @@
 		20A5536B1D44CE70002CDA50 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = G4K7C6U27J;
 				INFOPLIST_FILE = weiboUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liyueSwiftTest.weiboUITests;
@@ -593,6 +601,7 @@
 		20A5536C1D44CE70002CDA50 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				DEVELOPMENT_TEAM = G4K7C6U27J;
 				INFOPLIST_FILE = weiboUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = liyueSwiftTest.weiboUITests;
